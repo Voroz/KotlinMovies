@@ -1,6 +1,6 @@
 package ferm.jonny.architectureexample.features.movies.data.repository
 
-import ferm.jonny.architectureexample.core.domain.model.ActionResult
+import ferm.jonny.architectureexample.core.domain.model.DataResult
 import ferm.jonny.architectureexample.core.domain.model.ActionError
 import ferm.jonny.architectureexample.features.movies.data.data_source.MovieDbApi
 import ferm.jonny.architectureexample.features.movies.data.dto.toMovieDetails
@@ -16,27 +16,27 @@ class MovieRepositoryImpl @Inject constructor(
     private val api: MovieDbApi
 ) : MovieRepository {
 
-    override suspend fun getMovies(page: Int): ActionResult<List<MovieOverview>, FetchResourceError> {
+    override suspend fun getMovies(page: Int): DataResult<List<MovieOverview>, FetchResourceError> {
         return try {
             val movieOverviewsDto = api.getTopMovies(page).await()
             val movieOverviews = movieOverviewsDto.results.map {
                 it.toMovieOverview()
             }
 
-            ActionResult.Success(movieOverviews)
+            DataResult.Success(movieOverviews)
         } catch (e: Exception) {
-            ActionResult.Error(ActionError(FetchResourceError.Unknown, e.message))
+            DataResult.Error(ActionError(FetchResourceError.Unknown, e.message))
         }
     }
 
-    override suspend fun getMovieDetails(id: Int): ActionResult<MovieDetails, FetchResourceError> {
+    override suspend fun getMovieDetails(id: Int): DataResult<MovieDetails, FetchResourceError> {
         return try {
             val movieDetailsDto = api.getMovieDetails(id).await()
             val movieDetails = movieDetailsDto.toMovieDetails()
 
-            ActionResult.Success(movieDetails)
+            DataResult.Success(movieDetails)
         } catch (e: Exception) {
-            ActionResult.Error(ActionError(FetchResourceError.Unknown, e.message))
+            DataResult.Error(ActionError(FetchResourceError.Unknown, e.message))
         }
     }
 }
