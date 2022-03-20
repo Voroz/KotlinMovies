@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ArchitectureExample"
 include ':app'
+include ':core'
+include ':feature_movies'
+include ':feature_start'

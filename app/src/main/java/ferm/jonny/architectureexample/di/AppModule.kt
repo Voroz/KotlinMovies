@@ -4,13 +4,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ferm.jonny.architectureexample.core.Constants
-import ferm.jonny.architectureexample.features.movies.data.data_source.MovieDbApi
-import ferm.jonny.architectureexample.features.movies.data.data_source.AuthInterceptor
-import ferm.jonny.architectureexample.features.movies.data.repository.MovieRepository
-import ferm.jonny.architectureexample.features.movies.data.repository.MovieRepositoryImpl
-import ferm.jonny.architectureexample.features.movies.domain.use_case.GetMovieDetails
-import ferm.jonny.architectureexample.features.movies.domain.use_case.GetMovies
+import ferm.jonny.core.Constants
+import ferm.jonny.feature_movies.domain.repository.MovieRepository
+import ferm.jonny.feature_movies.data.data_source.MovieDbApi
+import ferm.jonny.feature_movies.data.repository.MovieRepositoryImpl
+import ferm.jonny.feature_movies.domain.use_case.GetMovieDetails
+import ferm.jonny.feature_movies.domain.use_case.GetMovies
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -26,7 +25,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideInterceptor() : Interceptor {
-        return AuthInterceptor()
+        return ferm.jonny.feature_movies.data.data_source.AuthInterceptor()
     }
 
     @Provides

@@ -5,14 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
-import ferm.jonny.architectureexample.features.movies.data.repository.MovieRepository
-import ferm.jonny.architectureexample.features.movies.presentation.NavGraphs
-import javax.inject.Inject
+import ferm.jonny.feature_movies.presentation.NavGraphs
 
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @Inject lateinit var movieRepository: MovieRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
