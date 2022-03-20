@@ -49,15 +49,20 @@ fun MovieDetailsCard(
             )
 
             Column(
-                verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
+                verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.Top),
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(horizontal = 10.dp)
             ) {
+                val hours = runtime / 60
+                val minutes = runtime % 60
+
                 val texts = listOf(
                     Pair("Title: ", title),
-                    Pair("Runtime: ", runtime.toString()),
                     Pair("Genres: ", genres.joinToString(", ")),
+                    Pair("Language: ", originalLanguage),
+                    Pair("Rating: ", "$voteAverage ($voteCount votes)"),
+                    Pair("Runtime: ", "$hours:$minutes"),
                     Pair("Release date: ", releaseDate),
                     Pair("Description: ", overview),
                 )

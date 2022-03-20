@@ -9,21 +9,26 @@ import ferm.jonny.architectureexample.features.movies.domain.model.FetchResource
 import ferm.jonny.architectureexample.features.movies.domain.model.MovieDetails
 import ferm.jonny.architectureexample.features.movies.domain.model.MovieOverview
 import retrofit2.await
-import javax.inject.Inject
+import kotlin.math.min
 
 // TODO: Handle more exceptions and convert to corresponding FetchResourceError
-class MovieRepositoryImpl @Inject constructor(
+class MovieRepositoryImpl(
     private val api: MovieDbApi
 ) : MovieRepository {
 
-    override suspend fun getMovies(page: Int): DataResult<List<MovieOverview>, FetchResourceError> {
+    // This could be a flow since we do multiple requests if count is high, but since it isn't, I will skip that
+    override suspend fun getMovies(count: Int): DataResult<List<MovieOverview>, FetchResourceError> {
         return try {
-            val movieOverviewsDto = api.getTopMovies(page).await()
-            val movieOverviews = movieOverviewsDto.results.map {
-                it.toMovieOverview()
+            val movieOverviews = mutableListOf<MovieOverview>()
+            var currentPage = 1
+
+            while (movieOverviews.size < count) {
+                val movieOverviewsDto = api.getTopMovies(currentPage).await()
+                movieOverviews.addAll(movieOverviewsDto.results.map { it.toMovieOverview() })
+                currentPage++
             }
 
-            DataResult.Success(movieOverviews)
+            DataResult.Success(movieOverviews.subList(0, min(movieOverviews.size, count)))
         } catch (e: Exception) {
             DataResult.Error(ActionError(FetchResourceError.Unknown, e.message))
         }

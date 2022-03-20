@@ -17,5 +17,7 @@ fun MovieOverviewScreen(
 ) {
     val movieOverviews: List<MovieOverview> by viewModel.moviesLiveData.observeAsState(listOf())
 
-    MovieOverviewList(movieOverviews) { id: Int -> navigator.navigate(MovieDetailsScreenDestination(id))}
+    MovieOverviewList(movieOverviews) {
+            id: Int -> navigator.navigate(MovieDetailsScreenDestination(id), onlyIfResumed = true)
+    }
 }

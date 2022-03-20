@@ -6,6 +6,6 @@ import ferm.jonny.architectureexample.features.movies.domain.model.MovieDetails
 import ferm.jonny.architectureexample.features.movies.domain.model.MovieOverview
 
 interface MovieRepository {
-    suspend fun getMovies(page: Int): DataResult<List<MovieOverview>, FetchResourceError>
+    suspend fun getMovies(count: Int): DataResult<List<MovieOverview>, FetchResourceError>
     suspend fun getMovieDetails(id: Int): DataResult<MovieDetails, FetchResourceError>
 }

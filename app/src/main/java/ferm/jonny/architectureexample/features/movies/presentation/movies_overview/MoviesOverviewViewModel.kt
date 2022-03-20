@@ -7,12 +7,13 @@ import ferm.jonny.architectureexample.core.domain.model.DataResult
 import ferm.jonny.architectureexample.features.movies.data.repository.MovieRepository
 import ferm.jonny.architectureexample.features.movies.domain.model.FetchResourceError
 import ferm.jonny.architectureexample.features.movies.domain.model.MovieOverview
+import ferm.jonny.architectureexample.features.movies.domain.use_case.GetMovies
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MoviesOverviewViewModel @Inject constructor(
-    private val _movieRepository: MovieRepository
+    private val getMovies: GetMovies
 ) : ViewModel() {
 
     private val _moviesLiveData = MutableLiveData(listOf<MovieOverview>())
@@ -20,14 +21,9 @@ class MoviesOverviewViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            when (val moviesResult = _movieRepository.getMovies(1)) {
+            when (val moviesResult = getMovies(10)) {
                 is DataResult.Error -> {
-                    when (moviesResult.error.data) {
-                        FetchResourceError.NoConnection -> TODO()
-                        FetchResourceError.UnAuthorized -> TODO()
-                        FetchResourceError.NotFound -> TODO()
-                        FetchResourceError.Unknown -> moviesResult.error.message?.let { message -> Log.d("MainActivity", message) }
-                    }
+                    // TODO: notify error state and then open snackbar or dialog in composable screen
                 }
                 is DataResult.Success -> {
                     _moviesLiveData.value = moviesResult.data
