@@ -2,6 +2,7 @@ package ferm.jonny.architectureexample.features.movies.data.dto
 
 
 import com.google.gson.annotations.SerializedName
+import ferm.jonny.architectureexample.core.Constants
 import ferm.jonny.architectureexample.features.movies.domain.model.MovieDetails
 
 data class MovieDetailsDto(
@@ -47,8 +48,8 @@ data class MovieDetailsDto(
 fun MovieDetailsDto.toMovieDetails() : MovieDetails {
     return MovieDetails(
         id = id,
-        backdropPath = backdropPath,
-        posterPath = posterPath,
+        backdropPath = "${Constants.movieDbImagesUrl}${backdropPath}",
+        posterPath = "${Constants.movieDbImagesUrl}${posterPath}",
         budget = budget,
         genres = genres.map { it.name },
         homepage = homepage,
