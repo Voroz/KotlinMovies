@@ -1,11 +1,11 @@
-package ferm.jonny.domain.use_case
+package ferm.jonny.feature_movies_domain.use_case
 
 import android.util.Log
 import ferm.jonny.core.domain.model.ActionError
 import ferm.jonny.core.domain.model.DataResult
-import ferm.jonny.domain.model.FetchResourceError
-import ferm.jonny.domain.model.MovieOverview
-import ferm.jonny.domain.repository.MovieRepository
+import ferm.jonny.feature_movies_domain.model.FetchResourceError
+import ferm.jonny.feature_movies_domain.model.MovieOverview
+import ferm.jonny.feature_movies_domain.repository.MovieRepository
 
 class GetMovies(
     private val _movieRepository: MovieRepository

@@ -1,4 +1,4 @@
-package ferm.jonny.presentation.movies_overview
+package ferm.jonny.feature_movies_presentation.movies_overview
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

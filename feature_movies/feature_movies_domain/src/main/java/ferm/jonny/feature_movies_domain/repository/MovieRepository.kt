@@ -1,9 +1,9 @@
-package ferm.jonny.domain.repository
+package ferm.jonny.feature_movies_domain.repository
 
 import ferm.jonny.core.domain.model.DataResult
-import ferm.jonny.domain.model.FetchResourceError
-import ferm.jonny.domain.model.MovieDetails
-import ferm.jonny.domain.model.MovieOverview
+import ferm.jonny.feature_movies_domain.model.FetchResourceError
+import ferm.jonny.feature_movies_domain.model.MovieDetails
+import ferm.jonny.feature_movies_domain.model.MovieOverview
 
 interface MovieRepository {
     suspend fun getMovies(count: Int): DataResult<List<MovieOverview>, FetchResourceError>

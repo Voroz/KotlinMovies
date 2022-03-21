@@ -7,13 +7,12 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.compose.rememberNavController
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.dependency
-import com.ramcosta.composedestinations.spec.NavGraphSpec
 import dagger.hilt.android.AndroidEntryPoint
 import ferm.jonny.architectureexample.navigation.MovieDetailsScreenNavigatorImpl
 import ferm.jonny.architectureexample.navigation.MoviesOverviewScreenNavigatorImpl
 import ferm.jonny.architectureexample.navigation.RootNavGraph
 import ferm.jonny.architectureexample.navigation.StartScreenNavigatorImpl
-import ferm.jonny.feature_start.StartNavGraph
+import ferm.jonny.feature_start_presentation.StartNavGraph
 
 @ExperimentalComposeUiApi
 @AndroidEntryPoint

@@ -1,14 +1,14 @@
-package ferm.jonny.data.repository
+package ferm.jonny.feature_movies_data.repository
 
-import ferm.jonny.domain.repository.MovieRepository
+import ferm.jonny.feature_movies_domain.repository.MovieRepository
 import ferm.jonny.core.domain.model.ActionError
 import ferm.jonny.core.domain.model.DataResult
-import ferm.jonny.data.data_source.MovieDbApi
-import ferm.jonny.data.dto.toMovieDetails
-import ferm.jonny.data.dto.toMovieOverview
-import ferm.jonny.domain.model.FetchResourceError
-import ferm.jonny.domain.model.MovieDetails
-import ferm.jonny.domain.model.MovieOverview
+import ferm.jonny.feature_movies_data.data_source.MovieDbApi
+import ferm.jonny.feature_movies_data.dto.toMovieDetails
+import ferm.jonny.feature_movies_data.dto.toMovieOverview
+import ferm.jonny.feature_movies_domain.model.FetchResourceError
+import ferm.jonny.feature_movies_domain.model.MovieDetails
+import ferm.jonny.feature_movies_domain.model.MovieOverview
 import retrofit2.await
 import kotlin.math.min
 

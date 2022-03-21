@@ -1,4 +1,4 @@
-package ferm.jonny.data.dto
+package ferm.jonny.feature_movies_data.dto
 
 
 data class GenreDto(

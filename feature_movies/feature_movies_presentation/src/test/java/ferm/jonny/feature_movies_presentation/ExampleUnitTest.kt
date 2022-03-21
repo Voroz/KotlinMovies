@@ -1,4 +1,4 @@
-package ferm.jonny.presentation
+package ferm.jonny.feature_movies_presentation
 
 import org.junit.Test
 

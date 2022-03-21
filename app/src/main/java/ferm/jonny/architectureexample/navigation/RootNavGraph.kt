@@ -3,8 +3,8 @@ package ferm.jonny.architectureexample.navigation
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
-import ferm.jonny.feature_movies.presentation.MoviesNavGraph
-import ferm.jonny.feature_start.StartNavGraph
+import ferm.jonny.feature_movies_presentation.MoviesNavGraph
+import ferm.jonny.feature_start_presentation.StartNavGraph
 
 @ExperimentalComposeUiApi
 object RootNavGraph: NavGraphSpec {

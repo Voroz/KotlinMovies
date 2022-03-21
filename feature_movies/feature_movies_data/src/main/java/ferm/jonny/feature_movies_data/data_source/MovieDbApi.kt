@@ -1,7 +1,7 @@
-package ferm.jonny.data.data_source
+package ferm.jonny.feature_movies_data.data_source
 
-import ferm.jonny.data.dto.MovieDetailsDto
-import ferm.jonny.data.dto.MovieOverviewsDto
+import ferm.jonny.feature_movies_data.dto.MovieDetailsDto
+import ferm.jonny.feature_movies_data.dto.MovieOverviewsDto
 import retrofit2.Call
 import retrofit2.http.*
 

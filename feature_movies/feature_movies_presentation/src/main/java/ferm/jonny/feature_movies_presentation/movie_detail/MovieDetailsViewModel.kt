@@ -1,10 +1,10 @@
-package ferm.jonny.presentation.movie_detail
+package ferm.jonny.feature_movies_presentation.movie_detail
 
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ferm.jonny.core.domain.model.DataResult
-import ferm.jonny.domain.model.MovieDetails
-import ferm.jonny.domain.use_case.GetMovieDetails
+import ferm.jonny.feature_movies_domain.model.MovieDetails
+import ferm.jonny.feature_movies_domain.use_case.GetMovieDetails
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

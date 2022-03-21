@@ -1,9 +1,9 @@
-package ferm.jonny.data.dto
+package ferm.jonny.feature_movies_data.dto
 
 
 import com.google.gson.annotations.SerializedName
 import ferm.jonny.core.Constants
-import ferm.jonny.domain.model.MovieOverview
+import ferm.jonny.feature_movies_domain.model.MovieOverview
 
 data class MovieOverviewDto(
     val adult: Boolean,

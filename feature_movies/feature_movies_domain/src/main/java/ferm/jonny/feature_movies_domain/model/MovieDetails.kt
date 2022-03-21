@@ -1,4 +1,4 @@
-package ferm.jonny.domain.model
+package ferm.jonny.feature_movies_domain.model
 
 data class MovieDetails(
     val id: Int,

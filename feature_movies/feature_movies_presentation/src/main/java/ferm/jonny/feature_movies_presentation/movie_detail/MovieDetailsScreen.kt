@@ -1,11 +1,11 @@
-package ferm.jonny.presentation.movie_detail
+package ferm.jonny.feature_movies_presentation.movie_detail
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
-import ferm.jonny.domain.model.MovieDetails
+import ferm.jonny.feature_movies_domain.model.MovieDetails
 
 
 @Destination

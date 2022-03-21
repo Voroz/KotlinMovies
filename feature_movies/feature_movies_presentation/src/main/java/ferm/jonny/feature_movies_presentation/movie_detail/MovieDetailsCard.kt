@@ -1,4 +1,4 @@
-package ferm.jonny.presentation.movie_detail
+package ferm.jonny.feature_movies_presentation.movie_detail
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState

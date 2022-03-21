@@ -1,4 +1,4 @@
-package ferm.jonny.presentation.movies_overview
+package ferm.jonny.feature_movies_presentation.movies_overview
 
 interface MoviesOverviewScreenNavigator {
     fun navigateToDetails(movieId: Int)

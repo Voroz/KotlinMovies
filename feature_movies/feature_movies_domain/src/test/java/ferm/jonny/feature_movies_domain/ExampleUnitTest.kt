@@ -1,4 +1,4 @@
-package ferm.jonny.domain
+package ferm.jonny.feature_movies_domain
 
 import org.junit.Test
 

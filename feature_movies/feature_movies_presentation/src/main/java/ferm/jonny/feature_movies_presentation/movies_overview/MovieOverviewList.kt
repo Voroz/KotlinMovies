@@ -1,4 +1,4 @@
-package ferm.jonny.presentation.movies_overview
+package ferm.jonny.feature_movies_presentation.movies_overview
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ferm.jonny.domain.model.MovieOverview
+import ferm.jonny.feature_movies_domain.model.MovieOverview
 
 @Composable
 fun MovieOverviewList(data: List<MovieOverview>, movieTapped: (id: Int) -> Unit) {

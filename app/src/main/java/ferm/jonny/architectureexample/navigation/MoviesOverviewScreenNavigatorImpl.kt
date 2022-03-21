@@ -4,8 +4,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavController
 import com.ramcosta.composedestinations.navigation.navigateTo
 import com.ramcosta.composedestinations.spec.DestinationSpec
-import ferm.jonny.feature_movies.presentation.destinations.MovieDetailsScreenDestination
-import ferm.jonny.feature_movies.presentation.movies_overview.MoviesOverviewScreenNavigator
+import ferm.jonny.feature_movies_presentation.destinations.MovieDetailsScreenDestination
+import ferm.jonny.feature_movies_presentation.movies_overview.MoviesOverviewScreenNavigator
 
 @ExperimentalComposeUiApi
 class MoviesOverviewScreenNavigatorImpl(

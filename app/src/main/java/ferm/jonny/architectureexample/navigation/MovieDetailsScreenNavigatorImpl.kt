@@ -3,7 +3,7 @@ package ferm.jonny.architectureexample.navigation
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavController
 import com.ramcosta.composedestinations.spec.DestinationSpec
-import ferm.jonny.feature_movies.presentation.movie_detail.MovieDetailsScreenNavigator
+import ferm.jonny.feature_movies_presentation.movie_detail.MovieDetailsScreenNavigator
 
 @ExperimentalComposeUiApi
 class MovieDetailsScreenNavigatorImpl(

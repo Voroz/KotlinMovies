@@ -1,4 +1,4 @@
-package ferm.jonny.data
+package ferm.jonny.feature_movies_data
 
 import org.junit.Test
 

@@ -16,4 +16,8 @@ rootProject.name = "ArchitectureExample"
 include ':app'
 include ':core'
 include ':feature_movies'
+include ':feature_movies:feature_movies_data'
+include ':feature_movies:feature_movies_presentation'
+include ':feature_movies:feature_movies_domain'
 include ':feature_start'
+include ':feature_start:feature_start_presentation'

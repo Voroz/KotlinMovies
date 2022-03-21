@@ -5,11 +5,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ferm.jonny.core.Constants
-import ferm.jonny.feature_movies.domain.repository.MovieRepository
-import ferm.jonny.feature_movies.data.data_source.MovieDbApi
-import ferm.jonny.feature_movies.data.repository.MovieRepositoryImpl
-import ferm.jonny.feature_movies.domain.use_case.GetMovieDetails
-import ferm.jonny.feature_movies.domain.use_case.GetMovies
+import ferm.jonny.feature_movies_data.data_source.AuthInterceptor
+import ferm.jonny.feature_movies_data.data_source.MovieDbApi
+import ferm.jonny.feature_movies_domain.repository.MovieRepository
+import ferm.jonny.feature_movies_domain.use_case.GetMovieDetails
+import ferm.jonny.feature_movies_domain.use_case.GetMovies
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -25,7 +25,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideInterceptor() : Interceptor {
-        return ferm.jonny.feature_movies.data.data_source.AuthInterceptor()
+        return AuthInterceptor()
     }
 
     @Provides
@@ -48,7 +48,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMovieRepository(api: MovieDbApi) : MovieRepository {
-        return MovieRepositoryImpl(api)
+        return ferm.jonny.feature_movies_data.repository.MovieRepositoryImpl(api)
     }
 
     @Provides

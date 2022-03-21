@@ -1,4 +1,4 @@
-package ferm.jonny.data.data_source
+package ferm.jonny.feature_movies_data.data_source
 
 import ferm.jonny.core.Constants
 import okhttp3.Interceptor
