@@ -22,7 +22,9 @@ class MovieDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             when (val detailsResult = getMovieDetails(_movieId)) {
                 is DataResult.Error -> {
-                    // TODO: notify error state and then open snackbar or dialog in composable screen
+                    // TODO: notify with our user friendly error message from error.message
+                    //  and then open snackbar or dialog in composable screen. It's also possible
+                    //  to switch on the error.data enum to handle specific errors in the viewModel.
                 }
                 is DataResult.Success -> {
                     _detailsLiveData.value = detailsResult.data
