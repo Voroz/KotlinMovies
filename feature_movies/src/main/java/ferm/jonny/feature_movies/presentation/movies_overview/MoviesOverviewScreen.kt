@@ -13,11 +13,11 @@ import ferm.jonny.feature_movies.presentation.destinations.MovieDetailsScreenDes
 @Composable
 fun MovieOverviewScreen(
     viewModel: MoviesOverviewViewModel = hiltViewModel(),
-    navigator: DestinationsNavigator
+    navigator: MoviesOverviewScreenNavigator
 ) {
     val movieOverviews: List<MovieOverview> by viewModel.moviesLiveData.observeAsState(listOf())
 
     MovieOverviewList(movieOverviews) {
-            id: Int -> navigator.navigate(MovieDetailsScreenDestination(id), onlyIfResumed = true)
+            id: Int -> navigator.navigateToDetails(id)
     }
 }

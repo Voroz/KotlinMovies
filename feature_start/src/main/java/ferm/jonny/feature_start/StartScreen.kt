@@ -8,10 +8,10 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination(start = true)
 @Composable
 fun StartScreen(
-    navigator: DestinationsNavigator
+    navigator: StartScreenNavigator
 ) {
     Button(onClick = {
-
+        navigator.navigateToMovieOverviews()
     }) {
 
     }

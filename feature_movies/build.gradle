@@ -29,6 +29,11 @@ kotlin {
     }
 }
 
+ksp {
+    arg("compose-destinations.mode", "navgraphs")
+    arg("compose-destinations.moduleName", "movies")
+}
+
 dependencies {
     implementation project(path: ':core')
     implementation "androidx.core:core-ktx:1.7.0"
