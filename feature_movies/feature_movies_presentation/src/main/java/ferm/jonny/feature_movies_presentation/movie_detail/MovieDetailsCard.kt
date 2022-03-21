@@ -29,7 +29,6 @@ fun MovieDetailsCard(
         Column(
             verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
             modifier = Modifier
-                .fillMaxSize()
                 .verticalScroll(rememberScrollState())) {
             GlideImage(
                 imageModel = imageUrl,

@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.7">
-      <module name="ArchitectureExample.app" target="11" />
-      <module name="ArchitectureExample.core" target="11" />
-      <module name="ArchitectureExample.feature_movies.feature_movies_data" target="11" />
-      <module name="ArchitectureExample.feature_movies.feature_movies_domain" target="11" />
-      <module name="ArchitectureExample.feature_movies.feature_movies_presentation" target="11" />
+    <bytecodeTargetLevel target="11">
       <module name="ArchitectureExample.feature_movies_old" target="11" />
-      <module name="ArchitectureExample.feature_start.feature_start_presentation" target="11" />
       <module name="ArchitectureExample.feature_start_old" target="11" />
     </bytecodeTargetLevel>
   </component>

@@ -11,7 +11,7 @@ import ferm.jonny.feature_start_presentation.StartScreenNavigator
 class StartScreenNavigatorImpl(
     private val currentDestination: DestinationSpec<*>,
     private val navController: NavController
-) : ferm.jonny.feature_start_presentation.StartScreenNavigator {
+) : StartScreenNavigator {
     override fun navigateToMovieOverviews() {
         navController.navigateTo(MovieOverviewScreenDestination())
     }

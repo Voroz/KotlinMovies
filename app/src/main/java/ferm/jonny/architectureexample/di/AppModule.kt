@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import ferm.jonny.core.Constants
 import ferm.jonny.feature_movies_data.data_source.AuthInterceptor
 import ferm.jonny.feature_movies_data.data_source.MovieDbApi
+import ferm.jonny.feature_movies_data.repository.MovieRepositoryImpl
 import ferm.jonny.feature_movies_domain.repository.MovieRepository
 import ferm.jonny.feature_movies_domain.use_case.GetMovieDetails
 import ferm.jonny.feature_movies_domain.use_case.GetMovies
@@ -48,7 +49,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMovieRepository(api: MovieDbApi) : MovieRepository {
-        return ferm.jonny.feature_movies_data.repository.MovieRepositoryImpl(api)
+        return MovieRepositoryImpl(api)
     }
 
     @Provides
