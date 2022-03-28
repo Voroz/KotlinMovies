@@ -23,44 +23,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val appState: AppState = rememberAppState()
-            val navController = appState.navController
-            navController.enableOnBackPressed(false)
-
-            Scaffold(
-                scaffoldState = appState.scaffoldState,
-                topBar = {
-                TopAppBar(title = {
-                    Text(text = applicationContext.getString(R.string.app_name))
-                },
-                navigationIcon = {
-                    IconButton(onClick = { navController.navigateUp() }) {
-                        Icon(
-                            Icons.Default.ArrowBack,
-                            contentDescription = "navigate back"
-                        )
-                    }
-                }
-                )
-            }) {
-                DestinationsNavHost(
-                    navController = navController,
-                    navGraph = RootNavGraph,
-                    startRoute = StartNavGraph,
-                    dependenciesContainerBuilder = {
-                        dependency(
-                            Navigator(
-                                currentDestination = destination,
-                                navController = navController
-                            )
-                        )
-                        dependency(
-                            PresentationUtilImpl { message, duration ->
-                                appState.showSnackbar(message, duration)
-                            })
-                    }
-                )
-            }
+            MainScreen()
         }
     }
 }

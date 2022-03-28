@@ -1,6 +1,9 @@
 package ferm.jonny.architectureexample.navigation
 
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
+import androidx.navigation.navOptions
 import com.ramcosta.composedestinations.navigation.navigateTo
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import ferm.jonny.feature_movies_presentation.destinations.MovieDetailsScreenDestination
@@ -15,7 +18,10 @@ class Navigator(
 ) : StartScreenNavigator, MoviesOverviewScreenNavigator, MovieDetailsScreenNavigator {
 
     override fun navigateToDetails(movieId: Int) {
-        navController.navigateTo(MovieDetailsScreenDestination(movieId))
+        navController.navigateTo(
+            MovieDetailsScreenDestination(movieId)) {
+            launchSingleTop = true
+        }
     }
 
     override fun navigateUp() {
@@ -23,6 +29,9 @@ class Navigator(
     }
 
     override fun navigateToMovieOverviews() {
-        navController.navigateTo(MovieOverviewScreenDestination())
+        navController.navigateTo(
+            MovieOverviewScreenDestination()) {
+            launchSingleTop = true
+        }
     }
 }
