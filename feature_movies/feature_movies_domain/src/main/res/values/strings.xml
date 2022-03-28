@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="movie_details_unauthorized_access">"Your application is not authorized to view the details of that movie."</string>
+    <string name="movie_details_resource_not_found">Ops, no details were found for that movie.</string>
+    <string name="movie_details_unknown_error">Sorry, an unknown error occurred when retrieving the details for that movie.</string>
+    <string name="movie_list_unauthorized_access">Your application is not authorized to view the list of movies.</string>
+    <string name="movie_list_resource_not_found">Ops, no movies were found.</string>
+    <string name="movie_list_unknown_error">Sorry, an unknown error occurred when retrieving the movie list.</string>
+</resources>

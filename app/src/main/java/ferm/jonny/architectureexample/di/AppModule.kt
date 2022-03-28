@@ -1,8 +1,10 @@
 package ferm.jonny.architectureexample.di
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ferm.jonny.core.Constants
 import ferm.jonny.feature_movies_data.data_source.AuthInterceptor
@@ -54,13 +56,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGetMoviesUseCase(movieRepository: MovieRepository) : GetMovies {
-        return GetMovies(movieRepository)
+    fun provideGetMoviesUseCase(@ApplicationContext context: Context, movieRepository: MovieRepository) : GetMovies {
+        return GetMovies(context, movieRepository)
     }
 
     @Provides
     @Singleton
-    fun provideGetMovieDetailsUseCase(movieRepository: MovieRepository) : GetMovieDetails {
-        return GetMovieDetails(movieRepository)
+    fun provideGetMovieDetailsUseCase(@ApplicationContext context: Context, movieRepository: MovieRepository) : GetMovieDetails {
+        return GetMovieDetails(context, movieRepository)
     }
 }

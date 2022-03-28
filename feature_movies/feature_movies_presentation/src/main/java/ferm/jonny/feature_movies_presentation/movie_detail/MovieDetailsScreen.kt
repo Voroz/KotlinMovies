@@ -3,6 +3,7 @@ package ferm.jonny.feature_movies_presentation.movie_detail
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
+import ferm.jonny.core.domain.PresentationUtil
 import ferm.jonny.feature_movies_domain.model.MovieDetails
 
 
@@ -19,9 +21,15 @@ import ferm.jonny.feature_movies_domain.model.MovieDetails
 @Composable
 fun MovieDetailsScreen(
     viewModel: MovieDetailsViewModel = hiltViewModel(),
-    movieId: Int // This needs to be here for the automatic nav code generation so that it can be retrieved from savedStateHandle in the viewModel.
+    presentationUtil: PresentationUtil,
+    movieId: Int
 ) {
     val movieDetails: MovieDetails? by viewModel.detailsLiveData.observeAsState()
+    val errorMessage: String? by viewModel.errorMessageLiveData.observeAsState()
+
+    errorMessage?.let {
+        presentationUtil.showSnackbar(it, SnackbarDuration.Short)
+    }
 
     movieDetails?.let {
         Column(
@@ -34,6 +42,5 @@ fun MovieDetailsScreen(
                 it.revenue, it.runtime, it.voteAverage, it.voteCount
             )
         }
-
     }
 }

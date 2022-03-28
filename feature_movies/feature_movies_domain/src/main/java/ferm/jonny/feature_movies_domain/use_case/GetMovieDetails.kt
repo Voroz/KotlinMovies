@@ -1,13 +1,16 @@
 package ferm.jonny.feature_movies_domain.use_case
 
+import android.content.Context
 import android.util.Log
 import ferm.jonny.core.domain.model.ActionError
 import ferm.jonny.core.domain.model.DataResult
+import ferm.jonny.feature_movies_domain.R
 import ferm.jonny.feature_movies_domain.model.FetchResourceError
 import ferm.jonny.feature_movies_domain.model.MovieDetails
 import ferm.jonny.feature_movies_domain.repository.MovieRepository
 
 class GetMovieDetails(
+    private val _context: Context,
     private val _movieRepository: MovieRepository
 ) {
     suspend operator fun invoke(id: Int): DataResult<MovieDetails, FetchResourceError> {
@@ -17,10 +20,10 @@ class GetMovieDetails(
                 detailsResult.error.message?.let { exceptionMessage -> Log.d("GetMovieDetails", exceptionMessage) }
 
                 val userMessage = when (detailsResult.error.data) {
-                    FetchResourceError.NoConnection -> "Sorry, looks like something's wrong with the connection."
-                    FetchResourceError.UnAuthorized -> "Your application is not authorized to view the details of that movie."
-                    FetchResourceError.NotFound -> "Ops, no details were found for that movie."
-                    FetchResourceError.Unknown -> "Sorry, an unknown error occurred when retrieving the details for that movie."
+                    FetchResourceError.NoConnection -> _context.getString(ferm.jonny.core.R.string.no_connection)
+                    FetchResourceError.UnAuthorized -> _context.getString(R.string.movie_details_unauthorized_access)
+                    FetchResourceError.NotFound -> _context.getString(R.string.movie_details_resource_not_found)
+                    FetchResourceError.Unknown -> _context.getString(R.string.movie_details_unknown_error)
                 }
 
                 DataResult.Error(ActionError(detailsResult.error.data, userMessage))

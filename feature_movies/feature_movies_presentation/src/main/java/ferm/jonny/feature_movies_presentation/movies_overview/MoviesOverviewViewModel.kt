@@ -16,11 +16,14 @@ class MoviesOverviewViewModel @Inject constructor(
     private val _moviesLiveData = MutableLiveData(listOf<MovieOverview>())
     val moviesLiveData: LiveData<List<MovieOverview>> = _moviesLiveData
 
+    private val _errorMessageLiveData = MutableLiveData<String>()
+    val errorMessageLiveData: LiveData<String> = _errorMessageLiveData
+
     init {
         viewModelScope.launch {
             when (val moviesResult = getMovies(10)) {
                 is DataResult.Error -> {
-                    // TODO: notify error state and then open snackbar or dialog in composable screen
+                    _errorMessageLiveData.value = moviesResult.error.message!!
                 }
                 is DataResult.Success -> {
                     _moviesLiveData.value = moviesResult.data

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_connection">Sorry, looks like something\'s wrong with the connection.</string>
+</resources>
